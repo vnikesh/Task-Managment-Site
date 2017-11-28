@@ -1,0 +1,48 @@
+{% extends 'wikisite/base.html' %}
+{% load staticfiles %}
+{% block content %}
+            {% if user.is_authenticated %}
+                <div class="page-container">
+
+                    <h2 class="top-menu">Hello {{ user.username }},</h2>
+                    <p>Please choose from below options.</p>
+
+                </div>
+            {% endif %}
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <img src="{% static "images/task.png" %}" alt="task" style="width:304px;height:228px;"/>
+                                        <div class="caption">
+                                            <h2>Task</h2>
+                                            <p>Task analysis is the analysis of how a task is accomplished, including a detailed description of both manual and mental activities. </p>
+                                            <p><a class="btn btn-primary" href="{% url 'wikisite:task_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class="col-md-3">
+									<div class="thumbnail">
+										<img src="{% static "images/summary.jpg" %}" alt="summary" style="width:304px;height:270px;"/>
+										<div class="caption">
+											<h2>Summary</h2>
+											<p>Summary is the  complete overview of the task be taken up by the user. </p>
+                                            <p><a class="btn btn-primary" href="{% url 'wikisite:summary' %}"
+													role="button">Summary &raquo;</a></p>
+										</div>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+    </html>
+{% endblock %}
